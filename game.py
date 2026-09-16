@@ -15,8 +15,10 @@ def battle(hero: Hero, enemy: Goblin):
             hero.take_damage(enemy_damage)
 
     if hero.is_alive():
-        print(f"{hero.name}wins!")
-        print(f"{enemy.name}wins!")
+        print(f"{hero.name} wins!")
+
+    if enemy.is_alive():
+        print(f"{enemy.name} wins!")
 
 def main():
     """Open the arena and introduce its first opponent."""
@@ -29,6 +31,10 @@ def main():
     print("But no hero has answered the call... yet.")
 
     hero1 = Hero("Ares")
+    hero1.battle_cry()
     print(f"{hero1.name} enters the arena with {hero1.health} health.")
 
     battle(hero1, goblin)
+
+if __name__ == "__main__":
+    main()

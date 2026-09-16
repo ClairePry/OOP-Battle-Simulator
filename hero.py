@@ -17,3 +17,6 @@ class Hero:
 
     def is_alive(self):
         return self.health > 0
+
+    def battle_cry(self):
+        print(f"{self.name} yells attack!")
