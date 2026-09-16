@@ -3,6 +3,25 @@ from goblin import Goblin
 
 ARENA_NAME = "The Attic"
 
+<<<<<<< Updated upstream
+=======
+def battle(hero: Hero, enemy: Goblin):
+    while hero.is_alive() and enemy.is_alive():
+        hero_damage = hero.attack()
+        print(f"{hero.name} attacks {enemy.name} for {hero_damage} damage!")
+        enemy.take_damage(hero_damage)
+
+        if enemy.is_alive():
+            enemy_damage = enemy.attack()
+            print(f"{enemy.name} attacks {hero.name} for {enemy_damage} damage!")
+            hero.take_damage(enemy_damage)
+
+    if hero.is_alive():
+        print(f"{hero.name} wins!")
+
+    if enemy.is_alive():
+        print(f"{enemy.name} wins!")
+>>>>>>> Stashed changes
 
 def main():
     """Open the arena and introduce its first opponent."""
@@ -15,8 +34,17 @@ def main():
     print(f"{goblin.name} enters the arena with {goblin.health} health.")
     goblin2 = Goblin("Scribble")
 
+<<<<<<< Updated upstream
     print(f"{goblin2.name} enters the arena with {goblin2.health} health.")
     print("But no hero has answered the call... yet.")
+=======
+    hero1 = Hero("Ares")
+    print(f"{hero1.name} enters the arena with {hero1.health} health.")
+
+    battle(hero1, goblin)
+
+
+>>>>>>> Stashed changes
 
 
 if __name__ == "__main__":
