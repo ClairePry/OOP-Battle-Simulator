@@ -4,10 +4,11 @@ class Boss:
     def __init__(self, name):
         self.name = name
         self.health = 160
-        self.attack_power = 30
+        self.attack_power = 20
 
     def attack(self):
         return random.randint(5, self.attack_power)
+    print("Fire ball!")
 
     def take_damage(self, damage):
         self.health = self.health - damage
