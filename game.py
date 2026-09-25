@@ -1,5 +1,6 @@
 from goblin import Goblin
 from hero import Hero
+from boss import Boss
 
 ARENA_NAME = "The Attic"
 
@@ -20,6 +21,23 @@ def battle(hero: Hero, enemy: Goblin):
     if enemy.is_alive():
         print(f"{enemy.name} wins!")
 
+def bossFight(hero: Hero, boss: Boss):
+    while hero.is_alive() and boss.is_alive():
+        hero_damage = hero.attack()
+        print(f"{hero.name} attacks {boss.name} for {hero_damage} damage!")
+        boss.take_damage(hero_damage)
+
+        if boss.is_alive():
+            boss_damage = boss.attack()
+            print(f"{boss.name} attacks {hero.name} for {boss_damage} damage!")
+            hero.take_damage(boss_damage)
+
+    if hero.is_alive():
+        print(f"{hero.name} wins!")
+
+    if boss.is_alive():
+        print(f"{boss.name} wins!")
+
 def main():
     """Open the arena and introduce its first opponent."""
     print(f"Welcome to {ARENA_NAME}!")
@@ -35,6 +53,18 @@ def main():
     print(f"{hero1.name} enters the arena with {hero1.health} health.")
 
     battle(hero1, goblin)
+
+    print( )
+    print(f"A terrible presence enters the {ARENA_NAME}")
+
+    boss=Boss("King Gorger")
+    boss.battle_cry()
+
+    print(f"{boss.name} enters the {ARENA_NAME} with {boss.health} health")
+
+    bossFight(hero1, boss)
+
+
 
 if __name__ == "__main__":
     main()
