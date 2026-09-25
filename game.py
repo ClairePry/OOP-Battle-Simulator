@@ -46,25 +46,20 @@ def main():
 
     goblin = Goblin("Gregor")
     print(f"{goblin.name} enters the arena with {goblin.health} health.")
-    print("But no hero has answered the call... yet.")
 
+    print("But no hero has answered the call... yet.")
     hero1 = Hero("Ares")
     hero1.battle_cry()
     print(f"{hero1.name} enters the arena with {hero1.health} health.")
-
     battle(hero1, goblin)
 
-    print( )
+    print()
     print(f"A terrible presence enters the {ARENA_NAME}")
-
-    boss=Boss("King Gorger")
+    boss = Boss("King Gorger")
     boss.battle_cry()
-
     print(f"{boss.name} enters the {ARENA_NAME} with {boss.health} health")
 
     bossFight(hero1, boss)
-
-
 
 if __name__ == "__main__":
     main()

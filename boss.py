@@ -1,23 +1,18 @@
-import random
+from enemy import Enemy
 
-class Boss:
+
+
+
+class Boss(Enemy):
+
     def __init__(self, name):
-        self.name = name
-        self.health = 160
-        self.attack_power = 20
+        super().__init__(name, health=250, attack_power=30)
 
     def attack(self):
-        return random.randint(5, self.attack_power)
-    print("Fire ball!")
-
-    def take_damage(self, damage):
-        self.health = self.health - damage
-        if self.health < 0:
-            self.health=0
-
-
-    def is_alive(self):
-        return self.health > 0
+        damage = super().attack()
+        bonus_damage = 5
+        print(f"{self.name} Strong attack!")
+        return damage + bonus_damage
 
     def battle_cry(self):
-        print(f"{self.name} Power attack!")
+        print(f"{self.name} get crushed!")
